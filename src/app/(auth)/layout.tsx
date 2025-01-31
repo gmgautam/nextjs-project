@@ -1,17 +1,23 @@
-'use client';
+import React, { ReactNode } from "react";
+import "@/globals.css";
+export const metadata = {
+  title: "Luxuria | Premium Experiences",
+  description: "Discover the epitome of luxury living", // Fixed typo in 'description'
+};
 
-import { ReactNode } from 'react';
-
-interface AuthLayoutProps {
-  children: ReactNode;
-}
-
-export default function AuthLayout({ children }: AuthLayoutProps) {
+const RootLayout = ({ children }: { children: ReactNode }) => {
   return (
-    <div className="flex min-h-screen items-center justify-center">
-      <div className="w-full rounded-lg shadow-md">
-        {children}
-      </div>
-    </div>
+    <html lang="en" className="scroll-smooth">
+      <body className="flex flex-col min-h-screen">
+        {/* Fixed Navbar with backdrop blur */}
+        {/* Main content with padding to account for fixed navbar */}
+        <main className="flex-1"> {/* Added padding-top to prevent content hiding under navbar */}
+          {children}
+        </main>
+
+      </body>
+    </html>
   );
-}
+};
+
+export default RootLayout;
